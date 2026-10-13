@@ -112,12 +112,14 @@ export async function getDashboardStats(): Promise<TDashboardStats> {
     if (item.receipt.createdAt >= startOfMonth) monthPurchaseCost += cost;
   }
 
-  const lowStockCount = products.filter((p) => {
-    const stock = stockMap.get(p.id) ?? 0;
-    const minStock = Number(p.minStock);
+  const lowStockCount = products.filter(
+    (p: { id: string; minStock: unknown }) => {
+      const stock = stockMap.get(p.id) ?? 0;
+      const minStock = Number(p.minStock);
 
-    return minStock > 0 && stock < minStock;
-  }).length;
+      return minStock > 0 && stock < minStock;
+    },
+  ).length;
 
   // ── 14-day daily trend (savdo vs xarid) ──────────────────────────
   const dailyBuckets = new Map<string, { label: string; sales: number; purchases: number }>();

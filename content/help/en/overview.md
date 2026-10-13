@@ -1,6 +1,6 @@
-# About Vol-Mart
+# About Marketshell
 
-**Vol-Mart** is a full store management system (ERP): sales, warehouse, cash register, staff and reports — all in one place.
+**Marketshell** is a full store management system (ERP): sales, warehouse, cash register, staff and reports — all in one place.
 
 ## What can it do?
 

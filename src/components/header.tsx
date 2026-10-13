@@ -23,17 +23,23 @@ export default async function Header() {
         >
             <Link href={PAGES.HOME}>
                 <div className="flex items-center gap-3 shrink-0 pr-5 h-full">
-                    <Image src="/logos/logo.png" alt="iMart" width={24} height={24} />
+                    <Image src="/logos/logo.png" alt="Logo" width={24} height={24} />
                     <div>
                         <p className="text-sm font-semibold text-white leading-none">
-                            Vol
+                            Market 
+                            <span className="text-[10px] mt-0.5 tracking-wide text-red-600">
+                                shell
+                            </span>
+                        </p>
+                        {/* <p className="text-sm font-semibold text-white leading-none">
+                            Market
                         </p>
                         <p
                             className="text-[10px] mt-0.5 tracking-wide"
                             style={{ color: "color-mix(in oklch, var(--primary) 40%, white)" }}
                         >
-                            Mart
-                        </p>
+                            shell
+                        </p> */}
                     </div>
                 </div>
             </Link>

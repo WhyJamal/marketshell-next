@@ -9,9 +9,10 @@ import {
 } from "@/config/locales.config";
 
 import { AuthLanguageSelect } from "../../(auth)/_components/auth-language-select";
+import { appConfig } from "@/config/app.config";
 
 export const metadata: Metadata = {
-  title: "iMart — Tashkilotni tanlash",
+  title: appConfig.appName + " - Organization selection",
   description: "Organization selection",
 };
 

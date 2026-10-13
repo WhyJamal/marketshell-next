@@ -9,9 +9,10 @@ import {
 } from "@/config/locales.config";
 
 import { AuthLanguageSelect } from "../../(auth)/_components/auth-language-select";
+import { appConfig } from "@/config/app.config";
 
 export const metadata: Metadata = {
-  title: "iMart-Organization",
+  title: appConfig.appName + " - Organization Management",
   description: "Organization Management",
 };
 

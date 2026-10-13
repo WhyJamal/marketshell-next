@@ -13,9 +13,10 @@ import { getThemeCssVariables, getThemeDarkClass } from "@/lib/theme/css";
 import { FONT_VARIABLE_CLASSNAMES } from "@/lib/theme/font-loaders";
 import { auth } from "@/auth";
 import { getUserTheme } from "@/lib/theme/server";
+import { appConfig } from "@/config/app.config";
 
 export const metadata: Metadata = {
-  title: "Vol mart",
+  title: appConfig.appName,
   description: "Sale app",
 };
 

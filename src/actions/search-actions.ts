@@ -54,10 +54,10 @@ export async function globalSearch(query: string): Promise<SearchGroup[]> {
     groups.push({
       type: "product",
       label: "Mahsulotlar",
-      items: products.map((p) => ({
+      items: products.map((p: { id: string; name: string; code: string; category?: { name: string } }) => ({
         id: p.id,
         title: p.name,
-        subtitle: `${p.code} · ${p.category?.name ?? "Bo'limsiz"}`,
+        subtitle: `${p.code} · ${p.category?.name ?? ""}`,
         url: PAGES.PRODUCTS,
       })),
     });
@@ -75,7 +75,7 @@ export async function globalSearch(query: string): Promise<SearchGroup[]> {
     groups.push({
       type: "contragent",
       label: "Kontragentlar",
-      items: contragents.map((c) => ({
+      items: contragents.map((c: { id: string; name: string; phone?: string; inn?: string; type: string }) => ({
         id: c.id,
         title: c.name,
         subtitle: c.phone ?? c.inn ?? (c.type === "SUPPLIER" ? "Sotuvchi" : "Xaridor"),
@@ -96,7 +96,7 @@ export async function globalSearch(query: string): Promise<SearchGroup[]> {
     groups.push({
       type: "user",
       label: "Xodimlar",
-      items: users.map((u) => ({
+      items: users.map((u: { id: string; name: string; email: string }) => ({
         id: u.id,
         title: u.name,
         subtitle: u.email,
@@ -153,7 +153,7 @@ function searchUsers(q: string, organizationId: string) {
       orderBy: { user: { name: "asc" } },
       select: { user: { select: { id: true, name: true, email: true } } },
     })
-    .then((rows) => rows.map((r) => r.user));
+    .then((rows: { user: { id: string; name: string; email: string } }[]) => rows.map((r) => r.user));
 }
 
 /** Purchase receipts tied to a Contragent that already matched the query. */
@@ -173,7 +173,7 @@ async function searchContragentDocuments(
     include: { contragent: { select: { name: true } } },
   });
 
-  return purchases.map((p) => ({
+  return purchases.map((p: { id: string; receiptNumber: string; contragent?: { name: string }; createdAt: Date }) => ({
     id: p.id,
     title: p.receiptNumber,
     subtitle: `${p.contragent?.name ?? ""} · ${dateFmt.format(p.createdAt)}`,
@@ -205,14 +205,14 @@ async function searchProductDocuments(
     }),
   ]);
 
-  const sales = saleItems.map((item) => ({
+  const sales = saleItems.map((item: { id: string; sale: { saleNumber: string; createdAt: Date }; product: { name: string } }) => ({
     id: item.id,
     title: item.sale.saleNumber,
     subtitle: `Sotuv · ${item.product.name} · ${dateFmt.format(item.sale.createdAt)}`,
     url: PAGES.SALES,
   }));
 
-  const purchases = purchaseItems.map((item) => ({
+  const purchases = purchaseItems.map((item: { id: string; receipt: { receiptNumber: string; createdAt: Date }; product: { name: string } }) => ({
     id: item.id,
     title: item.receipt.receiptNumber,
     subtitle: `Xarid · ${item.product.name} · ${dateFmt.format(item.receipt.createdAt)}`,

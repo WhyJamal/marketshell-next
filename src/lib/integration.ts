@@ -1,7 +1,7 @@
 import crypto from "crypto";
 
 /**
- * narsil (SaaS) va Vol-mart-next o'rtasidagi barcha so'rovlar shu
+ * narsil (SaaS) va Marketshell o'rtasidagi barcha so'rovlar shu
  * umumiy maxfiy kalit bilan imzolanadi. Ikkala loyihaning .env faylida
  * ham BIR XIL qiymat bo'lishi shart: INTEGRATION_SECRET=...
  */

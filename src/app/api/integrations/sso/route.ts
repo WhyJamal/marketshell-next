@@ -7,7 +7,7 @@ import { PAGES } from "@/config/pages.config";
 /**
  * narsil'dagi "Kirish" tugmasi shu yerga yo'naltiradi:
  *   /api/integrations/sso?token=...
- * Token ichida vol-mart-next userId VA organizationId bor (narsil
+ * Token ichida Marketshell userId VA organizationId bor (narsil
  * "Kirish" tugmasi allaqachon aniq Project → aniq Organization'ni
  * bilgani uchun). Bitta odam bir nechta tashkilotga a'zo bo'lishi
  * mumkin bo'lgani uchun organizationId shart — aks holda qaysi

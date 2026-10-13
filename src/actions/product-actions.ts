@@ -18,9 +18,9 @@ export async function getProducts() {
     include: { category: { select: { id: true, name: true } } },
   });
 
-  return products.map((p) => ({
+  return products.map((p: { category?: { id: string; name: string } }) => ({
     ...p,
-    categoryName: p.category?.name ?? "Bo'limsiz",
+    categoryName: p.category?.name ?? "",
   }));
 }
 

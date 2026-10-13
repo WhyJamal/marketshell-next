@@ -6,7 +6,7 @@ import { isValidServerSecret } from "@/lib/integration";
 import type { TxClient } from "@/types/prisma.types";
 
 /**
- * narsil (SaaS) Vol-mart sotib olinganda shu API'ga murojaat qiladi.
+ * Garnetshell (SaaS) Marketshell sotib olinganda shu API'ga murojaat qiladi.
  * Bir xil `saasProjectId` uchun ikkinchi marta chaqirilsa — mavjud
  * tashkilot qaytariladi (dublikat yaratilmaydi).
  *

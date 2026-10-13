@@ -30,7 +30,7 @@ export async function listMyOrganizations(): Promise<SelectableOrganization[]> {
     },
   });
 
-  return memberships.map((m) => ({
+  return memberships.map((m: { organizationId: string; role: string; organization: { name: string; logo: string | null } }) => ({
     organizationId: m.organizationId,
     name: m.organization.name,
     logo: m.organization.logo,

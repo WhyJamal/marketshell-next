@@ -6,10 +6,11 @@ import {
   type TLocale,
 } from "@/config/locales.config";
 
+import { appConfig } from "@/config/app.config";
 import { AuthLanguageSelect } from "./_components/auth-language-select";
 
 export const metadata: Metadata = {
-  title: "iMart-Auth",
+  title: appConfig.appName + " - Authentification",
   description: "Authentification",
 };
 

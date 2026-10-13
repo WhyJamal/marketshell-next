@@ -6,7 +6,7 @@ export default function SubscriptionExpiredPage() {
           Obuna muddati tugagan
         </h1>
         <p className="text-sm text-muted-foreground">
-          Tashkilotingizning Vol-mart obunasi tugagan. Davom etish uchun
+          Tashkilotingizning Marketshell obunasi tugagan. Davom etish uchun
           obunani uzaytiring.
         </p>
       </div>

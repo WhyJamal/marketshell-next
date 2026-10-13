@@ -76,11 +76,11 @@ export async function getTransfers(
     transfers.map((t: { createdBy: string | null }) => t.createdBy)
   );
 
-  const items: TSerializedTransfer[] = transfers.map((transfer) => ({
+  const items: TSerializedTransfer[] = transfers.map((transfer: { id: string; totalAmount: string; createdBy: string | null; items: any[] }) => ({
     ...transfer,
     totalAmount: Number(transfer.totalAmount),
     createdByName: transfer.createdBy ? userNames[transfer.createdBy] ?? null : null,
-    items: transfer.items.map((item) => ({
+    items: transfer.items.map((item: { qty: string; unitCost: string }) => ({
       ...item,
       qty: Number(item.qty),
       unitCost: Number(item.unitCost),
@@ -143,9 +143,9 @@ export async function getCellStockForTransfer(
   });
 
   const prices = await prisma.itemPrice.findMany({ where: { warehouseCellId } });
-  const priceMap = new Map(prices.map((p) => [p.productId, Number(p.price)]));
+  const priceMap = new Map(prices.map((p: { productId: string; price: string }) => [p.productId, Number(p.price)]));
 
-  return balances.map((balance) => ({
+  return balances.map((balance: { productId: string; qty: string; amount: string; product: { name: string; code: string } }) => ({
     cellId: cell.id,
     cellName: cell.name,
     productId: balance.productId,
@@ -189,7 +189,7 @@ export async function createTransfer(
     });
     if (cells.length !== cellIds.length) return { success: false, error: "One or more warehouse cells not found" };
 
-    const cellPoint = new Map(cells.map((cell) => [cell.id, cell.warehouse.pointId]));
+    const cellPoint = new Map(cells.map((cell: { id: string; warehouse: { pointId: string } }) => [cell.id, cell.warehouse.pointId]));
     for (const item of items) {
       if (cellPoint.get(item.fromCellId) !== fromPointId || cellPoint.get(item.toCellId) !== toPointId) {
         return { success: false, error: "Warehouse cells do not belong to selected points" };

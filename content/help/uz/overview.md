@@ -1,6 +1,6 @@
-# Vol-Mart haqida
+# Marketshell haqida
 
-**Vol-Mart** — do'koningiz uchun to'liq boshqaruv tizimi (ERP): savdo, ombor, kassa, xodimlar va hisobotlarning barchasi bitta joyda.
+**Marketshell** — do'koningiz uchun to'liq boshqaruv tizimi (ERP): savdo, ombor, kassa, xodimlar va hisobotlarning barchasi bitta joyda.
 
 ## Nimalarni qila oladi?
 

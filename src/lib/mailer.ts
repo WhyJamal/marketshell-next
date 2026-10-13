@@ -1,3 +1,4 @@
+import { appConfig } from "@/config/app.config";
 import nodemailer from "nodemailer";
 
 // Bepul SMTP orqali xat yuborish (masalan Gmail: smtp.gmail.com, 465-port,
@@ -51,11 +52,11 @@ async function sendMail(to: string, subject: string, html: string) {
 export async function sendVerificationEmail(to: string, code: string) {
   await sendMail(
     to,
-    "Vol-mart — emailni tasdiqlash kodi",
+    `${appConfig.appName} — код подтверждения email`,
     `<div style="font-family:sans-serif;font-size:15px;color:#111">
-      <p>Ro'yxatdan o'tishni yakunlash uchun quyidagi kodni kiriting:</p>
+      <p>Чтобы завершить регистрацию, введите следующий код:</p>
       <p style="font-size:28px;font-weight:700;letter-spacing:4px">${code}</p>
-      <p style="color:#666">Kod ${process.env.OTP_TTL_MINUTES ?? 10} daqiqa amal qiladi. Agar bu so'rovni siz yubormagan bo'lsangiz, xatni e'tiborsiz qoldiring.</p>
+      <p style="color:#666">Код действителен в течение ${process.env.OTP_TTL_MINUTES ?? 10} минут. Если вы не отправляли этот запрос, просто проигнорируйте это письмо.</p>
     </div>`
   );
 }
@@ -63,11 +64,12 @@ export async function sendVerificationEmail(to: string, code: string) {
 export async function sendPasswordResetEmail(to: string, code: string) {
   await sendMail(
     to,
-    "Vol-mart — parolni tiklash kodi",
+    `${appConfig.appName} — код восстановления пароля`,
     `<div style="font-family:sans-serif;font-size:15px;color:#111">
-      <p>Parolni tiklash uchun quyidagi kodni kiriting:</p>
+      <p>Чтобы восстановить пароль, введите следующий код:</p>
       <p style="font-size:28px;font-weight:700;letter-spacing:4px">${code}</p>
-      <p style="color:#666">Kod ${process.env.OTP_TTL_MINUTES ?? 10} daqiqa amal qiladi. Agar bu so'rovni siz yubormagan bo'lsangiz, xatni e'tiborsiz qoldiring.</p>
+      <p style="color:#666">Код действителен в течение ${process.env.OTP_TTL_MINUTES ?? 10} минут. Если вы не отправляли этот запрос, просто проигнорируйте это письмо.</p>
     </div>`
   );
 }
+
