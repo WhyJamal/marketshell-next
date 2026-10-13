@@ -134,6 +134,16 @@
   color-scheme: light;
 }
 
+/* Mobil: iOS Safari 16px dan kichik input'ga fokus bo'lganda sahifani
+   o'zi zoom qiladi. Shuni oldini olamiz (faqat telefon kenglikda). */
+@media (max-width: 767px) {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
+
 .dark {
   color-scheme: dark;
 }

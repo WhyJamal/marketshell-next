@@ -1,4 +1,5 @@
 import { DateTimeNow } from "./date-time-now";
+import { MobileNavButton } from "./mobile-nav";
 import { HeaderSearch } from "./header-search";
 import { NotificationBell } from "./notification-bell";
 import Image from "next/image";
@@ -15,16 +16,18 @@ export default async function Header() {
 
     return (
         <header
-            className="h-14 w-full border-b border-white/10 bg-size-[16px_16px,100%_100%] flex items-center shrink-0 px-5 gap-4"
+            className="h-14 w-full border-b border-white/10 bg-size-[16px_16px,100%_100%] flex items-center shrink-0 px-3 sm:px-5 gap-2 sm:gap-4"
             style={{
                 backgroundImage:
                     "radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(to right, color-mix(in oklch, var(--primary) 55%, black), color-mix(in oklch, var(--primary) 25%, black))",
             }}
         >
-            <Link href={PAGES.HOME}>
-                <div className="flex items-center gap-3 shrink-0 pr-5 h-full">
+            <MobileNavButton />
+
+            <Link href={PAGES.HOME} className="shrink-0">
+                <div className="flex items-center gap-3 shrink-0 sm:pr-5 h-full">
                     <Image src="/logos/logo.png" alt="Logo" width={24} height={24} />
-                    <div>
+                    <div className="hidden sm:block">
                         <p className="text-sm font-semibold text-white leading-none">
                             Market 
                             <span className="text-[10px] mt-0.5 tracking-wide text-red-600">
@@ -46,10 +49,12 @@ export default async function Header() {
 
             <HeaderSearch />
 
-            <div className="flex-1" />
+            <div className="hidden sm:block flex-1" />
 
-            <div className="flex items-center gap-2">
-                <DateTimeNow color="white" />
+            <div className="flex items-center gap-1 sm:gap-2 shrink-0">
+                <div className="hidden sm:block">
+                    <DateTimeNow color="white" />
+                </div>
 
                 <Link
                     href={PAGES.HELP("overview")}
@@ -63,7 +68,7 @@ export default async function Header() {
                 <NotificationBell />
 
                 <div
-                    className="w-8 h-8 rounded-full ring-1 ring-white flex items-center justify-center text-white text-xs font-semibold cursor-pointer"
+                    className="hidden sm:flex w-8 h-8 rounded-full ring-1 ring-white items-center justify-center text-white text-xs font-semibold cursor-pointer"
                     style={{
                         backgroundImage:
                             "linear-gradient(to bottom, color-mix(in oklch, var(--primary) 55%, white), var(--primary))",

@@ -100,7 +100,7 @@ export function NotificationBell() {
         </button>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent align="end" className="w-80 p-0 overflow-hidden">
+      <DropdownMenuContent align="end" className="w-80 max-w-[calc(100vw-1rem)] p-0 overflow-hidden">
         <div className="flex items-center justify-between px-3 py-2.5 border-b border-border">
           <span className="text-sm font-semibold">{t("title")}</span>
           {unreadCount > 0 && (

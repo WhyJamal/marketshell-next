@@ -67,7 +67,7 @@ export function HeaderSearch() {
     open && trimmedLength >= MIN_QUERY_LENGTH;
 
   return (
-    <div ref={containerRef} className="relative flex-1">
+    <div ref={containerRef} className="relative flex-1 min-w-0">
       <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-white/40 w-4 h-4 pointer-events-none" />
 
       <input

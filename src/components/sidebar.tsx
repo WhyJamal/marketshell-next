@@ -4,6 +4,7 @@ import { SIDEBARITEMS } from "@/config/sidebar.config";
 import { PAGES } from "@/config/pages.config";
 
 import SidebarSection from "./sidebar-section";
+import { SidebarFrame } from "./mobile-nav";
 import { SidebarNavItem } from "./sidebar-nav-item";
 import { getProfile } from "@/actions/user-actions";
 import { getServerSession } from "@/lib/auth";
@@ -22,7 +23,7 @@ export default async function Sidebar() {
         items.filter((item) => !item.permission || hasPermission(role, item.permission));
 
     return (
-        <aside className="w-60 bg-sidebar text-sidebar-foreground border-r border-sidebar-border flex flex-col h-full shadow-[1px_0_16px_rgba(0,0,0,0.04)] shrink-0">
+        <SidebarFrame>
             <nav className="px-2 pt-4 space-y-0.5">
                 {visible(SIDEBARITEMS.find((g) => g.groupKey === "top")?.items ?? []).map(
                     (item) => (
@@ -70,6 +71,6 @@ export default async function Sidebar() {
                     </div>
                 </div>
             </Link>
-        </aside>
+        </SidebarFrame>
     );
 }
