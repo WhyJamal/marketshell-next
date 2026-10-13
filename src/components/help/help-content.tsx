@@ -46,7 +46,8 @@ export async function HelpContent({ slug }: { slug: string }) {
   return (
     <div
       className="
-        text-sm text-foreground leading-relaxed
+        text-sm text-foreground leading-relaxed break-words
+        [&_pre]:overflow-x-auto
         [&_h1]:text-xl [&_h1]:font-bold [&_h1]:mb-3 [&_h1]:mt-0
         [&_h2]:text-base [&_h2]:font-bold [&_h2]:mt-6 [&_h2]:mb-2
         [&_p]:mb-3 [&_ul]:mb-3 [&_ul]:list-disc [&_ul]:pl-5

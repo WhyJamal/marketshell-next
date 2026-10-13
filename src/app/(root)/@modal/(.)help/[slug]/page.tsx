@@ -1,6 +1,7 @@
 import { HelpOverlayShell } from "@/components/help/help-overlay-shell";
 import { HelpSidebar } from "@/components/help/help-sidebar";
 import { HelpContent } from "@/components/help/help-content";
+import { HelpLayout } from "@/components/help/help-layout";
 
 export default async function HelpInterceptedPage({
   params,
@@ -11,13 +12,9 @@ export default async function HelpInterceptedPage({
 
   return (
     <HelpOverlayShell>
-      <HelpSidebar activeSlug={slug} />
-
-      <div className="flex-1 overflow-y-auto p-6">
-        <div className="max-w-3xl mx-auto">
-          <HelpContent slug={slug} />
-        </div>
-      </div>
+      <HelpLayout sidebar={<HelpSidebar activeSlug={slug} />}>
+        <HelpContent slug={slug} />
+      </HelpLayout>
     </HelpOverlayShell>
   );
 }

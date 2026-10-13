@@ -42,7 +42,7 @@ export function HelpOverlayShell({ children }: { children: ReactNode }) {
       />
 
       <div className="fixed inset-0 z-50 flex items-center justify-center">
-        <div className="w-[98vw] h-[98vh] bg-card border border-border rounded-2xl shadow-2xl flex flex-col overflow-hidden">
+        <div className="w-screen h-dvh md:w-[98vw] md:h-[98vh] bg-card md:border border-border md:rounded-2xl shadow-2xl flex flex-col overflow-hidden">
           <div className="h-12 shrink-0 flex items-center justify-end px-3 border-b border-border">
             <button
               type="button"
@@ -54,9 +54,7 @@ export function HelpOverlayShell({ children }: { children: ReactNode }) {
             </button>
           </div>
 
-          <div className="flex-1 min-h-0 flex overflow-hidden">
-            {children}
-          </div>
+          {children}
         </div>
       </div>
     </>
