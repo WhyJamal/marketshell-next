@@ -14,6 +14,7 @@ import { FONT_VARIABLE_CLASSNAMES } from "@/lib/theme/font-loaders";
 import { auth } from "@/auth";
 import { getUserTheme } from "@/lib/theme/server";
 import { appConfig } from "@/config/app.config";
+import { MobileNavProvider } from "@/components/mobile-nav";
 
 export const metadata: Metadata = {
   title: appConfig.appName,
@@ -67,8 +68,10 @@ export default async function RootLayout({
         <NextIntlClientProvider>
           <SessionProvider>
             <TooltipProvider>
-              {children}
-              <Toaster />
+              <MobileNavProvider>
+                {children}
+                <Toaster />
+              </MobileNavProvider>
             </TooltipProvider>
           </SessionProvider>
         </NextIntlClientProvider>
