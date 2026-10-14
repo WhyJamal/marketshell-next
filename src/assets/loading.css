@@ -1,6 +1,5 @@
-/* From Uiverse.io by mrhyddenn */ 
 .mover {
-  background: rgba(248, 25, 25, 0.979);
+  background: var(--primary);
   height: 10px;
   width: 80px;
   border-radius: 10px;
@@ -19,13 +18,13 @@
 }
 
 .mover::before {
-  background: rgb(201, 1, 1);
+  background: color-mix(in srgb, var(--primary) 75%, black);
   top: 20px;
   width: 50px;
 }
 
 .mover::after {
-  background: rgb(255, 116, 106);
+  background: color-mix(in srgb, var(--primary) 55%, white);
   top: -20px;
   width: 60px;
 }
